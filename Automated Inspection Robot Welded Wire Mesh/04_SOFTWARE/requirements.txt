@@ -1,0 +1,11 @@
+# Milestone 1 dependencies only - kept intentionally minimal.
+# Do not add pandas / ML / dashboard libraries here until that module
+# is actually being implemented.
+#
+# opencv-python includes GUI bindings (cv2.imshow) for local development.
+# If this is ever deployed to a headless server/CI runner, swap this for
+# opencv-python-headless instead (same API, no GUI dependency).
+opencv-python>=4.9,<5
+numpy>=1.26,<3
+streamlit>=1.38,<2
+pandas>=2.2,<3

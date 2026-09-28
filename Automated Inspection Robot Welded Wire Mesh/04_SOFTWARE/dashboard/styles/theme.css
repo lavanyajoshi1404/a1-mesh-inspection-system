@@ -1,0 +1,349 @@
+/* A-1 Mesh Inspection — industrial workstation shell */
+
+:root {
+  --navy: #122033;
+  --navy-2: #1a3148;
+  --charcoal: #243140;
+  --ink: #1a2430;
+  --muted: #5b6b7a;
+  --line: #c5d0da;
+  --paper: #e8edf2;
+  --surface: #ffffff;
+  --blue: #1d5f82;
+  --amber: #a86100;
+  --amber-bg: #f7eedc;
+  --red: #b42318;
+  --red-bg: #f8e8e6;
+  --green: #18794e;
+  --green-bg: #e7f3ec;
+}
+
+html, body, [data-testid="stAppViewContainer"] {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.stApp {
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 13px;
+}
+
+/* Hide Streamlit chrome that creates a blank/clipped header band */
+header[data-testid="stHeader"] {
+  background: transparent;
+  height: 0;
+}
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+#MainMenu,
+footer,
+.stDeployButton,
+[data-testid="stStatusWidget"] {
+  display: none !important;
+  visibility: hidden;
+  height: 0;
+}
+
+.block-container {
+  max-width: 100% !important;
+  padding: 0.45rem 0.7rem 0.35rem !important;
+}
+
+[data-testid="stVerticalBlock"] {
+  gap: 0.35rem !important;
+}
+
+[data-testid="stHorizontalBlock"] {
+  gap: 0.55rem !important;
+  align-items: stretch;
+}
+
+/* Sidebar rail */
+section[data-testid="stSidebar"] {
+  background: var(--navy) !important;
+  min-width: 196px !important;
+  width: 196px !important;
+  max-width: 196px !important;
+}
+section[data-testid="stSidebar"] > div {
+  background: var(--navy);
+  padding: 0.55rem 0.55rem 0.7rem !important;
+}
+section[data-testid="stSidebar"] * {
+  color: #d7e2ec !important;
+}
+section[data-testid="stSidebar"] .stRadio {
+  margin-top: 0.15rem;
+}
+section[data-testid="stSidebar"] .stRadio [role="radiogroup"] {
+  gap: 0 !important;
+}
+section[data-testid="stSidebar"] .stRadio label {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.04em;
+  font-weight: 650;
+  padding: 0.38rem 0.45rem !important;
+  margin: 0 !important;
+  border-left: 3px solid transparent;
+  background: transparent;
+}
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) {
+  background: var(--navy-2);
+  border-left-color: #8fb7cc;
+  color: #ffffff !important;
+}
+section[data-testid="stSidebar"] hr {
+  margin: 0.65rem 0 0.45rem 0;
+  border-color: #334155;
+}
+
+.sidebar-brand-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #f3f7fb !important;
+}
+.sidebar-brand-sub,
+.sidebar-section-header {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: #8aa0b4 !important;
+  text-transform: uppercase;
+  margin-top: 0.12rem;
+}
+.sidebar-state {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: #b7c8d6 !important;
+  border: 1px solid #334155;
+  padding: 0.35rem 0.45rem;
+}
+
+/* Page header — always in flow, never clipped */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 2px solid var(--navy);
+  padding: 0 0 0.38rem;
+  margin: 0 0 0.45rem;
+  min-height: 2.2rem;
+}
+.page-title {
+  color: var(--navy);
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+}
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.72rem;
+  margin-top: 0.1rem;
+  line-height: 1.3;
+}
+.status-badge {
+  background: #e7eef4;
+  color: var(--navy);
+  border: 1px solid #b9c9d7;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.28rem 0.48rem;
+  white-space: nowrap;
+}
+
+.section-title {
+  font-size: 0.7rem;
+  color: var(--navy);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.28rem;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.55rem 0.5rem;
+}
+
+.verdict {
+  border: 1px solid #e0c48a;
+  border-left: 6px solid var(--amber);
+  background: var(--amber-bg);
+  padding: 0.42rem 0.7rem;
+  margin: 0 0 0.45rem;
+}
+.verdict-ok {
+  border-color: #9dccb3;
+  border-left-color: var(--green);
+  background: var(--green-bg);
+}
+.verdict-fail {
+  border-color: #e3b3ae;
+  border-left-color: var(--red);
+  background: var(--red-bg);
+}
+.verdict-kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.verdict-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+.verdict-text {
+  font-size: 0.74rem;
+  color: #475767;
+  margin-top: 0.08rem;
+}
+
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.74rem;
+}
+table.kv th,
+table.kv td {
+  border-bottom: 1px solid #e4ebf1;
+  padding: 0.22rem 0.2rem;
+  vertical-align: top;
+  text-align: left;
+}
+table.kv th {
+  width: 42%;
+  color: var(--muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.64rem;
+}
+table.kv td {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.evidence-note {
+  border-left: 3px solid var(--blue);
+  background: #edf4f8;
+  padding: 0.28rem 0.5rem;
+  color: #344555;
+  font-size: 0.72rem;
+  margin: 0 0 0.28rem;
+}
+.evidence-list {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  font-size: 0.74rem;
+  color: #314150;
+}
+.evidence-list li {
+  margin: 0.12rem 0;
+}
+
+.status-bar {
+  display: flex;
+  gap: 1.1rem;
+  border-top: 1px solid var(--line);
+  margin-top: 0.4rem;
+  padding-top: 0.28rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.status-bar b {
+  color: var(--navy);
+  font-weight: 800;
+}
+
+[data-testid="stImage"] {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.2rem;
+}
+[data-testid="stImage"] img {
+  max-height: 54vh;
+  width: 100%;
+  object-fit: contain !important;
+}
+.workspace-image [data-testid="stImage"] img {
+  max-height: 58vh;
+}
+.result-image [data-testid="stImage"] img {
+  max-height: 46vh;
+}
+
+div.stButton > button,
+div.stDownloadButton > button {
+  border-radius: 2px !important;
+  font-size: 0.74rem !important;
+  font-weight: 750 !important;
+  min-height: 2rem;
+  letter-spacing: 0.04em;
+}
+div.stButton > button[kind="primary"] {
+  background: var(--navy) !important;
+  border: 1px solid var(--navy) !important;
+  color: #fff !important;
+}
+
+[data-testid="stCaption"] {
+  font-size: 0.68rem !important;
+  color: var(--muted) !important;
+}
+
+.stDataFrame {
+  border: 1px solid var(--line);
+}
+
+[data-testid="stVerticalBlockBorderWrapper"] {
+  background: var(--surface);
+  border: 1px solid var(--line) !important;
+  border-radius: 2px !important;
+  padding: 0.4rem 0.5rem !important;
+}
+
+div[data-testid="stRadio"] > label,
+div[data-testid="stSelectbox"] > label,
+div[data-testid="stNumberInput"] > label,
+div[data-testid="stTextInput"] > label,
+div[data-testid="stFileUploader"] > label {
+  font-size: 0.68rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 750 !important;
+  color: var(--navy) !important;
+}
+
+[data-baseweb="radio"] {
+  align-items: center;
+}
+
+div[role="radiogroup"] {
+  gap: 0.15rem 0.7rem !important;
+}
+
+.stAlert {
+  padding: 0.4rem 0.6rem !important;
+  font-size: 0.78rem;
+}
+
+p, .stMarkdown p {
+  font-size: 0.78rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Compact info/warning boxes */
+[data-testid="stAlert"] {
+  margin: 0.2rem 0 !important;
+}
